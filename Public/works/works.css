@@ -265,7 +265,8 @@ section {
   background-color: #141414;
 }
 .social-icons a.gmail:hover {
-  background-color: rgba(109, 109, 109, 0.549);
+  background-color: #ccf381;
+  color: #4831d4;
 }
 .social-icons a.linkedin:hover {
   background-color: #007bb6;

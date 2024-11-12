@@ -5,10 +5,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["sathishkumar"],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Sathishkumar's Portfolio",
   "dependencies": {
     "express": "^4.21.1",
     "nodemailer": "^6.9.16"

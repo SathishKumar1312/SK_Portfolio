@@ -182,7 +182,7 @@
             </li>
             <li>
               <a
-                href="./assets/Sathishkumar_Resume.pdf"
+                href="/resume"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="tooltip"
@@ -554,8 +554,7 @@
       </p>
       <form
         class="fadeAnime"
-        target="_blank"
-        action="/mail"
+        action="/mailProcess"
         method="post"
         id="myForm"
       >
@@ -593,7 +592,7 @@
           ></textarea>
           <div class="error"></div>
         </label>
-        <!-- your other form fields go here -->
+        <input type="hidden" name="submitted" value="true">
         <button type="submit" id="submit">
           Shoot
           <svg

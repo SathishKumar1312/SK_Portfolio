@@ -9,7 +9,9 @@ app.get("/", (req, res) => {
 });
 
 app.get("/resume", (req, res) => {
-  res.sendFile(path.join(__dirname, "../Public/assets/Sathishkumar_Resume.pdf"));
+  res.sendFile(
+    path.join(__dirname, "../Public/assets/Sathishkumar_Resume.pdf")
+  );
 });
 
 app.get("/works", (req, res) => {
@@ -29,7 +31,9 @@ const nodemailer = require("nodemailer");
 app.use(express.json()); // To handle JSON data
 app.use(express.urlencoded({ extended: true }));
 
-app.post("/mail", (req, res) => {
+let temp = false;
+
+app.post("/mailProcess", (req, res) => {
   let name = req.body.name;
   let email = req.body.email;
   let message = req.body.message;
@@ -54,14 +58,32 @@ app.post("/mail", (req, res) => {
 
   transporter.sendMail(mailData, function (err, info) {
     if (err) console.log(err);
-    else console.log("Message sent from '"+info.envelope.from+"' to '"+info.envelope.to[0]+"'\nMessage-ID : " + info.messageId);
+    else
+      console.log(
+        "Message sent from '" +
+          info.envelope.from +
+          "' to '" +
+          info.envelope.to[0] +
+          "'\nMessage-ID : " +
+          info.messageId
+      );
   });
-  res.sendFile(path.join(__dirname, "../Public/mail/mail.html"));
+  temp = true;
+  res.redirect("/mail");
 });
 
-app.all("*",(req, res) => {
-  res.sendFile(path.join(__dirname, "../Public/notFound/notFound.html"))
-})
+app.get("/mail", (req, res) => {
+  if (temp == true) {
+    res.sendFile(path.join(__dirname, "../Public/mail/mail.html"));
+    temp = false;
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.all("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../Public/notFound/notFound.html"));
+});
 app.listen(5000, () => {
   console.log("Server running on port 5000");
 });
