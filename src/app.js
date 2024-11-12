@@ -2,26 +2,26 @@ const express = require("express");
 const path = require("path");
 
 const app = express();
-app.use(express.static(path.join(__dirname, "/Public")));
+app.use(express.static(path.join(__dirname, "../Public")));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "/Public/index.html"));
+  res.sendFile(path.join(__dirname, "../Public/index.html"));
 });
 
 app.get("/resume", (req, res) => {
-  res.sendFile(path.join(__dirname, "/Public/assets/Sathishkumar_Resume.pdf"));
+  res.sendFile(path.join(__dirname, "../Public/assets/Sathishkumar_Resume.pdf"));
 });
 
 app.get("/works", (req, res) => {
-  res.sendFile(path.join(__dirname, "/Public/works/works.html"));
+  res.sendFile(path.join(__dirname, "../Public/works/works.html"));
 });
 app.get("/works/smartCircuit", (req, res) => {
   res.sendFile(
-    path.join(__dirname, "/Public/works/smartCircuit/smartCircuit1.html")
+    path.join(__dirname, "../Public/works/smartCircuit/smartCircuit1.html")
   );
 });
 app.get("/works/signLanguageInterpreter", (req, res) => {
-  res.sendFile(path.join(__dirname, "/Public/works/signLanguage.pdf"));
+  res.sendFile(path.join(__dirname, "../Public/works/signLanguage.pdf"));
 });
 
 const nodemailer = require("nodemailer");
@@ -56,11 +56,11 @@ app.post("/mail", (req, res) => {
     if (err) console.log(err);
     else console.log("Message sent from '"+info.envelope.from+"' to '"+info.envelope.to[0]+"'\nMessage-ID : " + info.messageId);
   });
-  res.sendFile(path.join(__dirname, "/Public/mail/mail.html"));
+  res.sendFile(path.join(__dirname, "../Public/mail/mail.html"));
 });
 
 app.all("*",(req, res) => {
-  res.sendFile(path.join(__dirname, "/Public/notFound/notFound.html"))
+  res.sendFile(path.join(__dirname, "../Public/notFound/notFound.html"))
 })
 app.listen(5000, () => {
   console.log("Server running on port 5000");
