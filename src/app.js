@@ -5,23 +5,23 @@ const app = express();
 app.use(express.static(path.join(__dirname, "./Public")));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(__dirname, "/Public/index.html"));
 });
 
 app.get("/resume", (req, res) => {
-  res.sendFile(path.join(__dirname, "public/assets/Sathishkumar_Resume.pdf"));
+  res.sendFile(path.join(__dirname, "/Public/assets/Sathishkumar_Resume.pdf"));
 });
 
 app.get("/works", (req, res) => {
-  res.sendFile(path.join(__dirname, "public/works/works.html"));
+  res.sendFile(path.join(__dirname, "/Public/works/works.html"));
 });
 app.get("/works/smartCircuit", (req, res) => {
   res.sendFile(
-    path.join(__dirname, "public/works/smartCircuit/smartCircuit1.html")
+    path.join(__dirname, "/Public/works/smartCircuit/smartCircuit1.html")
   );
 });
 app.get("/works/signLanguageInterpreter", (req, res) => {
-  res.sendFile(path.join(__dirname, "public/works/signLanguage.pdf"));
+  res.sendFile(path.join(__dirname, "/Public/works/signLanguage.pdf"));
 });
 
 const nodemailer = require("nodemailer");
